@@ -35,6 +35,7 @@ class NameImageSection1 extends StatelessWidget {
             children: [
               
           
+          
               FadeInContainer(constraints: constraints),
               SlideInColumn(constraints: constraints),
             
