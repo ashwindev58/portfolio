@@ -1,7 +1,11 @@
 
+import 'package:ashwin_k/screens/widget/animatednameandjob.dart';
+import 'package:ashwin_k/screens/widget/backgroundpurplecontainer.dart';
+
 import 'package:flutter/material.dart';
 
-import 'widgettextsubtext.dart';
+import 'fadeinimage.dart';
+
 
 class NameImageSection1 extends StatelessWidget {
   final BoxConstraints constraints;
@@ -13,11 +17,12 @@ class NameImageSection1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          width: constraints.maxWidth * 0.25,
-          color: Colors.deepPurple,
-          height: constraints.maxHeight * 0.8,
-        ),
+        // Container(
+        //   width: constraints.maxWidth * 0.25,
+        //   color: Colors.deepPurple,
+        //   height: constraints.maxHeight * 0.8,
+        // ),
+        AnimatedSlideContainer(constraints: constraints),
         Container(
           // height: 150,
           alignment: AlignmentDirectional.bottomEnd,
