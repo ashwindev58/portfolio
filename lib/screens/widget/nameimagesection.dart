@@ -1,7 +1,6 @@
 
 import 'package:ashwin_k/screens/widget/animatednameandjob.dart';
 import 'package:ashwin_k/screens/widget/backgroundpurplecontainer.dart';
-
 import 'package:flutter/material.dart';
 
 import 'fadeinimage.dart';
@@ -34,6 +33,7 @@ class NameImageSection1 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              
           
               FadeInContainer(constraints: constraints),
               SlideInColumn(constraints: constraints),
