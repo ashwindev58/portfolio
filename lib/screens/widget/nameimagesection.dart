@@ -84,7 +84,7 @@ class NameImageSection1 extends StatelessWidget {
                     children: [
                       TextSubText(
                           constraints: constraints,
-                          tittle: "1+",
+                          tittle: "1+",.
                           subTittle: "Years of work"),
                            SizedBox(
                     width: constraints.maxWidth * 0.05,
