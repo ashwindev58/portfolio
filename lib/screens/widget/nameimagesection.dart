@@ -29,6 +29,7 @@ class NameImageSection1 extends StatelessWidget {
           margin: EdgeInsets.only(
             left: constraints.maxWidth * 0.1,
           ),
+          padding: EdgeInsets.all(constraints.maxHeight*0.05),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

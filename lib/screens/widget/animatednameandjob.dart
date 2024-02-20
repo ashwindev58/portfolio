@@ -41,67 +41,69 @@ class _SlideInColumnState extends State<SlideInColumn>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _animationOpacity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: constraints.maxWidth * 0.1,
-          ),
-          const Text(
-            "Flutter Developer",
-            style: TextStyle(
-                color: Colors.deepPurple,
-                fontWeight: FontWeight.w900,
-                fontSize: 23),
-          ),
-          SizedBox(
-            height: constraints.maxWidth * 0.005,
-          ),
-          Text(
-            "ASHWIN K",
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
-                letterSpacing: constraints.maxWidth * 0.005,
-                fontWeight: FontWeight.w900),
-          ),
-          SizedBox(
-            height: constraints.maxWidth * 0.005,
-          ),
-          SizedBox(
-            width: constraints.maxWidth * 0.4,
-            child: const Text(
-              '''A passionate and innovative software developer with a knack for crafting elegant solutions to complex problems''',
-              style: TextStyle(
-                  color: Colors.grey, fontSize: 18),
-              textAlign: TextAlign.justify,
+    return Expanded(
+      child: FadeTransition(
+        opacity: _animationOpacity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: constraints.maxWidth * 0.1,
             ),
-          ),
-          SizedBox(
-            height: constraints.maxHeight * 0.05,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              TextSubText(
-                constraints: constraints,
-                title: "1+",
-                subTitle: "Years of work",
+            const Text(
+              "Flutter Developer",
+              style: TextStyle(
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 23),
+            ),
+            SizedBox(
+              height: constraints.maxWidth * 0.005,
+            ),
+            Text(
+              "ASHWIN K",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  letterSpacing: constraints.maxWidth * 0.005,
+                  fontWeight: FontWeight.w900),
+            ),
+            SizedBox(
+              height: constraints.maxWidth * 0.005,
+            ),
+            SizedBox(
+              width: constraints.maxWidth * 0.4,
+              child: const Text(
+                '''Adaptable Flutter Developer with a flair for crafting visually appealing and highly functional cross-platform applications. Driven by a commitment to staying ahead in the ever-evolving world of Flutter development.''',
+                style: TextStyle(
+                    color: Colors.grey, fontSize: 18),
+                textAlign: TextAlign.justify,
               ),
-              SizedBox(
-                width: constraints.maxWidth * 0.05,
-              ),
-              TextSubText(
-                constraints: constraints,
-                title: "1+",
-                subTitle: "Project Behind",
-              ),
-            ],
-          )
-        ],
+            ),
+            SizedBox(
+              height: constraints.maxHeight * 0.05,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextSubText(
+                  constraints: constraints,
+                  title: "1+",
+                  subTitle: "Years of work",
+                ),
+                SizedBox(
+                  width: constraints.maxWidth * 0.05,
+                ),
+                TextSubText(
+                  constraints: constraints,
+                  title: "1+",
+                  subTitle: "Project Behind",
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

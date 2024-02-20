@@ -1,3 +1,4 @@
+import 'package:ashwin_k/screens/section2/widgetsection2.dart';
 import 'package:flutter/material.dart';
 
 import 'widget/nameimagesection.dart';
@@ -5,7 +6,7 @@ import 'widget/topbar.dart';
 
 //https://harrison-ca54df.webflow.io/home-v1
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -16,8 +17,8 @@ class _HomeState extends State<Home> {
   bool isScorll = false;
 
   void _scrollListener() {
-    print(scrollController.offset);
-    print(scrollController.position);
+    // print(scrollController.offset);
+    // print(scrollController.position);
     if (scrollController.offset != 0) {
       // User has scrolled to the bottom
       setState(() {
@@ -57,6 +58,8 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       NameImageSection1(constraints: constraints),
+                      SizedBox(height: constraints.maxHeight*0.051,),
+                       WidgetSection2(constraints: constraints,)
                     ],
                   ),
                 ),
