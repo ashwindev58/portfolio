@@ -35,6 +35,7 @@ class WidgetSection2 extends StatelessWidget {
               ),
               const Text(
                 "A creative and dedicated\n Flutter developer",
+                
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35,
