@@ -1,4 +1,5 @@
 
+import 'package:ashwin_k/screens/mainscreeen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -42,15 +43,21 @@ class TopAppBar extends StatelessWidget {
           Row(
             children: [
               ApBarButton(
-                onPressed: () {},
+                onPressed: () {
+                  scrollToAboutMe( aboutMeKey);
+                },
                 text: "About",
               ),
               ApBarButton(
-                onPressed: () {},
+                onPressed: () {
+                  scrollToAboutMe( aboutMeKey2);
+                },
                 text: "Skills",
               ),
               ApBarButton(
-                onPressed: () {},
+                onPressed: () {
+                  scrollToAboutMe( aboutMeKey3);
+                },
                 text: "Experiance",
               ),
             ],
@@ -74,7 +81,7 @@ class ApBarButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: Text(
         text,
         style: const TextStyle(color: Colors.grey,fontWeight: FontWeight.w900),

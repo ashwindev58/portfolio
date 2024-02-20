@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'widget/nameimagesection.dart';
 import 'widget/topbar.dart';
 
+final GlobalKey aboutMeKey = GlobalKey();
+final GlobalKey aboutMeKey2 = GlobalKey();
+final GlobalKey aboutMeKey3 = GlobalKey();
+
 //https://harrison-ca54df.webflow.io/home-v1
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,6 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   ScrollController scrollController = ScrollController();
+
   bool isScorll = false;
 
   void _scrollListener() {
@@ -58,8 +63,19 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       NameImageSection1(constraints: constraints),
-                      SizedBox(height: constraints.maxHeight*0.051,),
-                       WidgetSection2(constraints: constraints,)
+                      SizedBox(
+                        height: constraints.maxHeight * 0.051,
+                      ),
+                      Container(
+                        key: aboutMeKey,
+                        child: WidgetSection2(
+                          constraints: constraints,
+                        ),
+                      ),
+
+                      
+
+
                     ],
                   ),
                 ),
@@ -70,4 +86,8 @@ class _HomeState extends State<Home> {
       },
     );
   }
+}
+
+void scrollToAboutMe(GlobalKey key) {
+  Scrollable.ensureVisible(key.currentContext!);
 }

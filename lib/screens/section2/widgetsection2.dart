@@ -1,8 +1,13 @@
 import 'package:ashwin_k/screens/section2/widgets/iagecirclebutton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_social_button/flutter_social_button.dart';
 
-import 'widgets/socialmediaicon.dart';
+
+  const email = 'ashwinkannoth58@gmail.com'; // Replace with the recipient's email
+    const subject = 'Hello from Flutter App';
+    const body = 'This is the message body.';
+
+    final mailtoLink = 'mailto:$email?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}';
+
 
 class WidgetSection2 extends StatelessWidget {
   final BoxConstraints constraints;
@@ -35,7 +40,7 @@ class WidgetSection2 extends StatelessWidget {
               ),
               const Text(
                 "A creative and dedicated\n Flutter developer",
-                
+
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35,
@@ -47,7 +52,7 @@ class WidgetSection2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircularImageButton(
-                    constraints: constraints,siteUrl: "https://profile.indeed.com/p/ashwink-b47l20m",
+                    constraints: constraints,siteUrl:"https://profile.indeed.com/p/ashwink-b47l20m",
                     imageurl:
                         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAflBMVEUAAAD///////////////////////////////////////////////+/zuZvkMZQd7pAa7Sgtdnv8/gAOptgg8AgUqcgU6evweCAnc0QRqF/nc3v8vhwkMcwXq3f5vLP2uz////f5/JfhMB/nM0wX66AnM1PeLqPqdOftdrv8/mN6/jEAAAAIXRSTlMAEGCfz+//XyCQj98w/////////////////////////6AQ1BAWAAABD0lEQVR4AYWThRZCIQxAR+11h939/z+oHECHGNd4sbvR8IJxIRWikiJiEBInCl+IGHxYim+kfnqGARkpkj/jRVnVVdMaIw/yi7qr+7IaxolXg7n4dDZfGHEojGFG4/q3XK3RsSE9jV3+SqevC6ToRrbmdjc84m3ddeOOCAkAQ8Oo6++7BzURFANuB3DQ/8dOgwTuWjjpAnjW8YEKAqS5KU0dLVyoIEGZYdnOr8veH4YCN+5vWGGBVtxc68IXFFLqrus8QYH8LUjY/hYE8N9CBEz9FBhA8ksQZLmpQJeblAiFxNtyoZCxYNMvu252CzY+2fa3fVU84/nfg0NgyXs8YeATb0lUJTGEML61x5+T7DuGyRy8BcS3+wAAAABJRU5ErkJggg==',
 
