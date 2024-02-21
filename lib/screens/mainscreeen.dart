@@ -57,6 +57,7 @@ class _HomeState extends State<Home> {
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
                   controller: scrollController,
+                  
                   scrollDirection: Axis.vertical,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
 
-                      
+
 
 
                     ],
