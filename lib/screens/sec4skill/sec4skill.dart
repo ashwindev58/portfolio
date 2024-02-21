@@ -31,13 +31,12 @@ class Sec4SkillState extends State<Sec4Skill> {
   ];
 
   var otherSkills = [
-    'Microsoft Office )',
+    'Microsoft Office',
     'Appstore and Play Store Deployment',
     'Bard AI',
     'Firebase',
     'HTTP API integration',
     'PHP CodeIgniter (Back end only)',
-    'SQL (mentioned twice)',
     'Problem management',
     'Time management',
     'AI Prompt',
@@ -167,7 +166,8 @@ class Sec4SkillState extends State<Sec4Skill> {
                     skilList: otherSkills),
               ],
             ),
-          )
+          ),
+          SizedBox(height: constraints.maxHeight*0.1,)
         ],
       ),
     );
@@ -216,7 +216,7 @@ class _SkillWidgetState extends State<SkillWidget> {
           });
         },
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 1000),
           decoration: BoxDecoration(
             // border: Border.all(
             //   color: isonTop ? Colors.deepPurple : Colors.grey.withOpacity(0.6),
