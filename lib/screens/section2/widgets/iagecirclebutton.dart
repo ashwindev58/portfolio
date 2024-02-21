@@ -14,7 +14,7 @@ class CircularImageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _launchURL(siteUrl);
+        launchURL(siteUrl);
       },
       
       child: Container(
@@ -39,7 +39,7 @@ class CircularImageButton extends StatelessWidget {
 }
 
 
-Future<void> _launchURL(String url) async {
+Future<void> launchURL(String url) async {
   if (await canLaunchUrl(Uri.parse(url))) {
     await launchUrl(Uri.parse(url));
   } else {

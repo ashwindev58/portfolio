@@ -1,3 +1,4 @@
+import 'package:ashwin_k/screens/sec3experiance/sec3experiance.dart';
 import 'package:ashwin_k/screens/section2/widgetsection2.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,7 @@ class _HomeState extends State<Home> {
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
                   controller: scrollController,
-                  
+
                   scrollDirection: Axis.vertical,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +74,7 @@ class _HomeState extends State<Home> {
                           constraints: constraints,
                         ),
                       ),
-
+                      Sec3Experiance(constraints: constraints,),
 
 
 
