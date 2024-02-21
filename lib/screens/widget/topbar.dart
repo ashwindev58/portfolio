@@ -50,15 +50,15 @@ class TopAppBar extends StatelessWidget {
               ),
               ApBarButton(
                 onPressed: () {
-                  scrollToAboutMe( aboutMeKey2);
+                  scrollToAboutMe( experianceKey2);
                 },
-                text: "Skills",
+                text: "Experiance",
               ),
               ApBarButton(
                 onPressed: () {
-                  scrollToAboutMe( aboutMeKey3);
+                  scrollToAboutMe( skillKey);
                 },
-                text: "Experiance",
+                text: "skill",
               ),
             ],
           )
