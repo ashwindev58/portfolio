@@ -1,5 +1,6 @@
 import 'package:ashwin_k/screens/sec3experiance/sec3experiance.dart';
 import 'package:ashwin_k/screens/sec4skill/sec4skill.dart';
+import 'package:ashwin_k/screens/sec5projects/sec5projects.dart';
 import 'package:ashwin_k/screens/section2/widgetsection2.dart';
 import 'package:flutter/material.dart';
 
@@ -85,6 +86,10 @@ class _HomeState extends State<Home> {
                       Container(
                           key: skillKey,
                           child: Sec4Skill(constraints: constraints)),
+                      SizedBox(
+                        height: constraints.maxHeight * 0.051,
+                      ),
+                      Sec5Projects(constraints: constraints)
                     ],
                   ),
                 ),

@@ -1,4 +1,7 @@
+import 'package:ashwin_k/screens/sec4skill/widgets/skillswidget.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/skillists.dart';
 
 class Sec4Skill extends StatefulWidget {
   const Sec4Skill({super.key, required this.constraints});
@@ -9,90 +12,13 @@ class Sec4Skill extends StatefulWidget {
 }
 
 class Sec4SkillState extends State<Sec4Skill> {
-  var flutterskill = [
-    'Developing Cross-Platform (Android/iOS) Apps',
-    'Flutter Bloc ',
-    'Version Controll Using GitHub',
-    'Flutter Web Development & Deployment'
-        'Widget building ',
-    'UI/UX design ',
-    'State management',
-    'Flutter animations',
-    'Flutter navigation',
-    'Dart programming language',
-    'Flutter packages/plugins integration',
-    'Responsive design',
-    'Deployment to App Store and Play Store',
-    'Integration with backend services',
-    'Knowledge of Dart\'s asynchronous programming',
-    'Understanding Flutter\'s widget lifecycle',
-    'Flutter performance optimization',
-    'Integration of third-party libraries in Flutter',
-  ];
-
-  var otherSkills = [
-    'Microsoft Office',
-    'Appstore and Play Store Deployment',
-    'Bard AI',
-    'Firebase',
-    'HTTP API integration',
-    'PHP CodeIgniter (Back end only)',
-    'Problem management',
-    'Time management',
-    'AI Prompt',
-    'Positive attitude',
-    'ChatGPT',
-    'Gemini',
-    'Bard',
-    'Git',
-    'JSON',
-  ];
-
-  var softSkills = [
-    "Positive attitude",
-    "Problem-solving skills",
-    "Time management",
-    "Effective communication",
-    "Team collaboration",
-    "Adaptability",
-    "Creativity",
-    "Critical thinking",
-    "Attention to detail",
-    "Decision-making",
-    "Emotional intelligence",
-    "Open-mindedness",
-    "Leadership",
-    "Interpersonal skills",
-    "Self-motivation",
-    "Conflict resolution",
-    "Empathy",
-    "Stress management",
-    "Professionalism",
-    "Active listening"
-  ];
-
-  var proList = [
-    'Java',
-    'C',
-    'Python',
-    'Dart',
-    'C++',
-    'PHP',
-    'Oops',
-    'Data Structures',
-    'LeetCOde',
-    'Functional Programming',
-    'Code Optimization',
-    'Version Control '
-        'MVC Architecture',
-    'Databases (SQL,MySql,Sqlite)'
-  ];
-
   @override
   void initState() {
     constraints = widget.constraints;
     super.initState();
   }
+
+  final ScrollController scrollController = ScrollController();
 
   late BoxConstraints constraints;
   @override
@@ -140,34 +66,53 @@ class Sec4SkillState extends State<Sec4Skill> {
               ],
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: BouncingScrollPhysics(),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SkillWidget(
-                  constraints: constraints,
-                  skillTittle: "Programming Languages",
-                  skilList: proList,
+          Container(
+            width: MediaQuery.of(context).size.width,
+            // height: MediaQuery.of(context).size.height ,
+            alignment: Alignment.centerLeft,
+            child: RawScrollbar(
+              thumbColor: Colors.grey.withOpacity(0.5),
+              thumbVisibility: true,
+              trackVisibility: true,
+          thickness: 10,
+              radius: const Radius.circular(15),
+              interactive: true,
+              scrollbarOrientation: ScrollbarOrientation.top,
+              controller: scrollController,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                controller: scrollController,
+                reverse: true,padding: EdgeInsets.only(top: constraints.maxHeight*0.02),
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SkillWidget(
+                      constraints: constraints,
+                      skillTittle: "Programming Languages",
+                      skilList: proList,
+                    ),
+                    SkillWidget(
+                        constraints: constraints,
+                        skillTittle: "Flutter Skills",
+                        skilList: flutterskill),
+                    SkillWidget(
+                        constraints: constraints,
+                        skillTittle: "Soft Skills",
+                        skilList: softSkills),
+                    SkillWidget(
+                        constraints: constraints,
+                        skillTittle: "Others",
+                        skilList: otherSkills),
+                  ],
                 ),
-                SkillWidget(
-                    constraints: constraints,
-                    skillTittle: "Flutter Skills",
-                    skilList: flutterskill),
-                SkillWidget(
-                    constraints: constraints,
-                    skillTittle: "Soft Skills",
-                    skilList: softSkills),
-                SkillWidget(
-                    constraints: constraints,
-                    skillTittle: "Others",
-                    skilList: otherSkills),
-              ],
+              ),
             ),
           ),
-          SizedBox(height: constraints.maxHeight*0.1,)
+          SizedBox(
+            height: constraints.maxHeight * 0.1,
+          )
         ],
       ),
     );
