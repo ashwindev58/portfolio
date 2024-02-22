@@ -1,4 +1,3 @@
-import 'package:ashwin_k/screens/sec4skill/widgets/skillswidget.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/skillists.dart';
@@ -27,7 +26,7 @@ class Sec4SkillState extends State<Sec4Skill> {
     return Container(
       padding: EdgeInsets.only(
         top: constraints.maxHeight * 0.1,
-        bottom: constraints.maxHeight * 0.1,
+       bottom: constraints.maxHeight * 0.1,
         left: constraints.maxWidth * 0.1,
         right: constraints.maxWidth * 0.05,
       ),
