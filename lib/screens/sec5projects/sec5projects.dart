@@ -1,8 +1,12 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class Sec5Projects extends StatefulWidget {
-  const Sec5Projects({super.key, required this.constraints});
+  const Sec5Projects(
+      {super.key, required this.constraints, required this.listAppDataModel});
   final BoxConstraints constraints;
+  final List<AppDataMOdel> listAppDataModel;
 
   @override
   State<Sec5Projects> createState() => _Sec5ProjectsState();
@@ -20,10 +24,10 @@ class _Sec5ProjectsState extends State<Sec5Projects> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: constraints.maxHeight * 0.1,
+        // top: constraints.maxHeight * 0.1,
         bottom: constraints.maxHeight * 0.1,
         left: constraints.maxWidth * 0.1,
-        right: constraints.maxWidth * 0.05,
+        // right: constraints.maxWidth * 0.05,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +51,7 @@ class _Sec5ProjectsState extends State<Sec5Projects> {
                   height: constraints.maxHeight * 0.02,
                 ),
                 const Text(
-                  "Fluttering Success: A Gallery of Impressive Dart Projects",
+                  "Fluttering Success: A Gallery of Impressive Flutter Projects",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
@@ -55,51 +59,67 @@ class _Sec5ProjectsState extends State<Sec5Projects> {
                   ),
                 ),
                 SizedBox(
-                  height: constraints.maxHeight * 0.05,
+                  height: constraints.maxHeight * 0.1,
                 ),
               ],
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          for (int i = 0; i < (widget.listAppDataModel.length); i = i + 3)
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                for(int i=0;i<5;i++)
-                Padding(
-                  padding: EdgeInsets.only(right: constraints.maxWidth*0.015),
-                  child: ProjectCard(
-                    constraints: constraints,
-                    appIconUrl:
-                        "https://raw.githubusercontent.com/ashwindev58/images/main/aoujapp.png",
-                    isOnAppStore: true,
-                    isOnPlayStore: true,
+                for (int j = 0; j < 3; j++)
+                  Builder(
+                    builder: (context) {
+                      if((i+j)>=widget.listAppDataModel.length) {
+                        return const SizedBox();
+                      } else {
+                        return Padding(
+                        padding: EdgeInsets.only(
+                          right: constraints.maxWidth * 0.025,
+                          bottom: constraints.maxHeight * 0.075,
+                        ),
+                        child: ProjectCard(
+                          constraints: constraints,
+                          appData: widget.listAppDataModel[i + j],
+                        ),
+                      );
+                      }
+                    }
                   ),
-                )
               ],
             ),
-          ),
+            SizedBox(height: constraints.maxHeight*0.05,)
         ],
       ),
     );
   }
 }
 
-class ProjectCard extends StatelessWidget {
+class AppDataMOdel {
   final bool isOnAppStore;
 
   final String appIconUrl;
 
   final bool isOnPlayStore;
 
+  final String appName;
+
+  AppDataMOdel(
+      {required this.isOnAppStore,
+
+      required this.appIconUrl,
+      required this.appName,
+      required this.isOnPlayStore});
+}
+
+class ProjectCard extends StatelessWidget {
+  final AppDataMOdel appData;
+
   const ProjectCard({
     super.key,
     required this.constraints,
-    required this.isOnAppStore,
-    required this.appIconUrl,
-    required this.isOnPlayStore,
+    required this.appData,
   });
 
   final BoxConstraints constraints;
@@ -117,7 +137,7 @@ class ProjectCard extends StatelessWidget {
           (constraints.maxWidth * constraints.maxHeight) * 0.00001,
         )),
       ),
-      width: constraints.maxWidth * 0.27,
+      width: constraints.maxWidth * 0.25,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -131,10 +151,10 @@ class ProjectCard extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.grey,
+              color: Colors.white,
               image: DecorationImage(
                 image: NetworkImage(
-                  appIconUrl, // Replace with your image URL
+                  appData.appIconUrl, // Replace with your image URL
                 ),
               ),
               border: Border.all(color: Colors.grey, width: 0.5),
@@ -149,15 +169,15 @@ class ProjectCard extends StatelessWidget {
               SizedBox(
                 height: constraints.maxHeight * 0.04,
               ),
-              const Text(
-                "Alouj Construction ",
-                style: TextStyle(
+              Text(
+                appData.appName,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w900,
                   fontSize: 18,
                 ),
               ),
-              Row(
+              appData.isOnAppStore||appData.isOnPlayStore?Row(
                 children: [
                   const Text(
                     "Downloads now @ ",
@@ -167,22 +187,22 @@ class ProjectCard extends StatelessWidget {
                       fontSize: 10,
                     ),
                   ),
-                  isOnAppStore
+                  appData.isOnAppStore
                       ? ImageIcon(
                           constraints: constraints,
                           imgUrl:
                               "https://raw.githubusercontent.com/ashwindev58/images/main/appstore.jpeg",
                         )
-                      : SizedBox(),
-                  isOnPlayStore
+                      : const SizedBox(),
+                  appData.isOnPlayStore
                       ? ImageIcon(
                           constraints: constraints,
                           imgUrl:
                               "https://raw.githubusercontent.com/ashwindev58/images/main/plastore.png",
                         )
-                      : SizedBox(),
+                      : const SizedBox(),
                 ],
-              ),
+              ):SizedBox(),
             ],
           ),
         ],

@@ -10,6 +10,7 @@ import 'widget/topbar.dart';
 final GlobalKey aboutMeKey = GlobalKey();
 final GlobalKey experianceKey2 = GlobalKey();
 final GlobalKey skillKey = GlobalKey();
+final GlobalKey projectKey = GlobalKey();
 
 //https://harrison-ca54df.webflow.io/home-v1
 class Home extends StatefulWidget {
@@ -89,7 +90,13 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: constraints.maxHeight * 0.051,
                       ),
-                      Sec5Projects(constraints: constraints)
+                      Container(
+                        key: projectKey,
+                        child: Sec5Projects(
+                          constraints: constraints,
+                          listAppDataModel: gListAppDataModel,
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -105,3 +112,39 @@ class _HomeState extends State<Home> {
 void scrollToAboutMe(GlobalKey key) {
   Scrollable.ensureVisible(key.currentContext!);
 }
+
+List<AppDataMOdel> gListAppDataModel = [
+  AppDataMOdel(
+      isOnAppStore: true,
+      appIconUrl:
+          "https://raw.githubusercontent.com/ashwindev58/images/main/aoujapp.png",
+      appName: "Alouj Construction",
+      isOnPlayStore: true),
+  AppDataMOdel(
+      isOnAppStore: true,
+      appIconUrl: "https://raw.githubusercontent.com/ashwindev58/images/main/eshoppy.png",
+      appName: "Eshoppy",
+      isOnPlayStore: true),
+      AppDataMOdel(
+      isOnAppStore: true,
+      appIconUrl: "https://raw.githubusercontent.com/ashwindev58/images/main/kvvv.png",
+      appName: "KVVES Kannur",
+      isOnPlayStore: true),
+      AppDataMOdel(
+      isOnAppStore: true,
+      appIconUrl: "https://raw.githubusercontent.com/ashwindev58/images/main/idukki.png",
+      appName: "KVVES Idukki",
+      isOnPlayStore: true),
+      AppDataMOdel(
+      isOnAppStore: true,
+      appIconUrl: "https://raw.githubusercontent.com/ashwindev58/images/main/kvvv.png",
+      appName: "KVVES Wayanad",
+      isOnPlayStore: true),
+      AppDataMOdel(
+      isOnAppStore: false,
+      appIconUrl: "https://raw.githubusercontent.com/ashwindev58/images/main/tfwbsksd.png",
+      appName: "TFWBS Kasaragod",
+      isOnPlayStore: true),
+
+];
+// https://raw.githubusercontent.com/ashwindev58/images/main/tfwbsksd.png

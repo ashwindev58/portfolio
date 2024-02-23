@@ -97,10 +97,10 @@ class Sec3ExperianceState extends State<Sec3Experiance> {
                   JobExperianceDetailsWidgets(
                     constraints: constraints,
                     companyName: "Soften Technologies - Kadavanthara, Kerala",
-                    locationurl: "https://maps.app.goo.gl/D1EKXh96ma92d4y89",
-                    jobTittle: "Flutter Developer",
+                    locationurl: "https://maps.app.goo.gl/Fc7PSYWM9B4uLJWL9",
+                    jobTittle: "Flutter Developer Intern",
                     duration: "September 2022 to March 2023",
-                    websiteUrl: "https://astrasoftwaresolutions.com/",
+                    websiteUrl: "https://softentec.com/",
                   )
                 ],
               ),
