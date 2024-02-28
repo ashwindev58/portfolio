@@ -1,4 +1,5 @@
 
+import 'package:ashwin_k/commons/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 
@@ -33,81 +34,109 @@ class Sec3ExperianceState extends State<Sec3Experiance> {
         children: [
           SizedBox(
             width: constraints.maxWidth * 0.35,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "#work_experiance",
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: constraints.maxHeight * 0.02,
-                ),
-                const Text(
-                  "Proficient Flutter Developer with 1+ Years of Successful App Delivery",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-                SizedBox(
-                  height: constraints.maxHeight * 0.05,
-                ),
-              ],
-            ),
+            child: ExperienceTittle(constraints: constraints),
           ),
           SizedBox(
             width: constraints.maxWidth * 0.1,
           ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.only(top: constraints.maxHeight * 0.07),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  JobExperianceDetailsWidgets(
-                    constraints: constraints,
-                    companyName: "Brototype - Calicut, Kerala",
-                    locationurl: "https://maps.app.goo.gl/yBQL1BhYx53bouqK9",
-                    jobTittle: "Flutter Techinical Support",
-                    duration: "December 2023 to Present",
-                    websiteUrl: "https://brototype.com/",
-                  ),
-                  SizedBox(
-                    height: constraints.maxHeight * 0.05,
-                  ),
-                  JobExperianceDetailsWidgets(
-                    constraints: constraints,
-                    companyName: "Astra Software Solutions - Kannangad, Kerala",
-                    locationurl: "https://maps.app.goo.gl/D1EKXh96ma92d4y89",
-                    jobTittle: "Flutter Developer",
-                    duration: "April 2023 to November 2023",
-                    websiteUrl: "https://astrasoftwaresolutions.com/",
-                  ),
-                   SizedBox(
-                    height: constraints.maxHeight * 0.05,
-                  ),
-                  JobExperianceDetailsWidgets(
-                    constraints: constraints,
-                    companyName: "Soften Technologies - Kadavanthara, Kerala",
-                    locationurl: "https://maps.app.goo.gl/Fc7PSYWM9B4uLJWL9",
-                    jobTittle: "Flutter Developer Intern",
-                    duration: "September 2022 to March 2023",
-                    websiteUrl: "https://softentec.com/",
-                  )
-                ],
-              ),
-            ),
-          ),
+          ExperienceList(constraints: constraints),
         ],
       ),
+    );
+  }
+}
+
+class ExperienceList extends StatelessWidget {
+  const ExperienceList({
+    super.key,
+    required this.constraints,
+  });
+
+  final BoxConstraints constraints;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        padding: isWeb()? EdgeInsets.only(top: constraints.maxHeight * 0.07):null,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            JobExperianceDetailsWidgets(
+              constraints: constraints,
+              companyName: "Brototype - Calicut, Kerala",
+              locationurl: "https://maps.app.goo.gl/yBQL1BhYx53bouqK9",
+              jobTittle: "Flutter Techinical Support",
+              duration: "December 2023 to Present",
+              websiteUrl: "https://brototype.com/",
+            ),
+            SizedBox(
+              height:isWeb()? constraints.maxHeight * 0.05:constraints.maxHeight * 0.002,
+            ),
+            JobExperianceDetailsWidgets(
+              constraints: constraints,
+              companyName: "Astra Software Solutions - Kannangad, Kerala",
+              locationurl: "https://maps.app.goo.gl/D1EKXh96ma92d4y89",
+              jobTittle: "Flutter Developer",
+              duration: "April 2023 to November 2023",
+              websiteUrl: "https://astrasoftwaresolutions.com/",
+            ),
+            SizedBox(
+              height:isWeb()? constraints.maxHeight * 0.05:constraints.maxHeight * 0.002,
+            ),
+            JobExperianceDetailsWidgets(
+              constraints: constraints,
+              companyName: "Soften Technologies - Kadavanthara, Kerala",
+              locationurl: "https://maps.app.goo.gl/Fc7PSYWM9B4uLJWL9",
+              jobTittle: "Flutter Developer Intern",
+              duration: "September 2022 to March 2023",
+              websiteUrl: "https://softentec.com/",
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ExperienceTittle extends StatelessWidget {
+  const ExperienceTittle({
+    super.key,
+    required this.constraints,
+  });
+
+  final BoxConstraints constraints;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "#work_experiance",
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(
+          height: constraints.maxHeight * 0.02,
+        ),
+         Text(
+          "Proficient Flutter Developer with 1+ Years of Successful App Delivery",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: isWeb()? 32:20,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+       isWeb()? SizedBox(
+          height: constraints.maxHeight * 0.05,
+        ):const SizedBox(),
+      ],
     );
   }
 }
@@ -166,6 +195,7 @@ class _JobExperianceDetailsWidgetsState extends State<JobExperianceDetailsWidget
             ((widget.constraints.maxHeight * widget.constraints.maxWidth) / 100) * 0.0011,
           ),
         ),
+        margin: isWeb()?null:EdgeInsets.all(20),
         padding: EdgeInsets.all(
             ((widget.constraints.maxHeight * widget.constraints.maxWidth) / 100) * 0.0031),
         child: Row(
@@ -177,10 +207,10 @@ class _JobExperianceDetailsWidgetsState extends State<JobExperianceDetailsWidget
               children: [
                 Text(
                   widget.jobTittle,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.deepPurple,
                     fontWeight: FontWeight.w700,
-                    fontSize: 18,
+                    fontSize: isWeb()? 18:15,
                   ),
                 ),
                 SizedBox(
@@ -188,10 +218,10 @@ class _JobExperianceDetailsWidgetsState extends State<JobExperianceDetailsWidget
                 ),
                 Text(
                   widget.companyName,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: isWeb()? 15:12,
                   ),
                 ),
                 SizedBox(
@@ -199,10 +229,10 @@ class _JobExperianceDetailsWidgetsState extends State<JobExperianceDetailsWidget
                 ),
                 Text(
                   widget.duration,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: isWeb()? 15:12,
                   ),
                 ),
                 // SizedBox(
@@ -225,9 +255,9 @@ class _JobExperianceDetailsWidgetsState extends State<JobExperianceDetailsWidget
                   icon: FontAwesomeIcons.globe,
                   color: Colors.blue,
                 ),
-                SizedBox(
+               isWeb()? SizedBox(
                   width: widget.constraints.maxHeight * 0.0251,
-                ),
+                ):SizedBox(),
               ],
             )
           ],

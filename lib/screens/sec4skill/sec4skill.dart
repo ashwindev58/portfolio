@@ -1,3 +1,4 @@
+import 'package:ashwin_k/commons/constants.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/skillists.dart';
@@ -35,7 +36,7 @@ class Sec4SkillState extends State<Sec4Skill> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(
-            width: constraints.maxWidth * 0.35,
+            width: isWeb()? constraints.maxWidth * 0.35 :constraints.maxWidth ,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,11 +52,11 @@ class Sec4SkillState extends State<Sec4Skill> {
                 SizedBox(
                   height: constraints.maxHeight * 0.02,
                 ),
-                const Text(
+                 Text(
                   "A committed and passionate Flutter developer",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 32,
+                    fontSize:isWeb()? 32:22,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -73,7 +74,7 @@ class Sec4SkillState extends State<Sec4Skill> {
               thumbColor: Colors.grey.withOpacity(0.5),
               thumbVisibility: true,
               trackVisibility: true,
-          thickness: 10,
+          thickness: isWeb()? 10:5,
               radius: const Radius.circular(15),
               interactive: true,
               scrollbarOrientation: ScrollbarOrientation.top,
@@ -188,7 +189,7 @@ class _SkillWidgetState extends State<SkillWidget> {
                       : isonTop
                           ? const Color.fromRGBO(103, 58, 183, 1)
                           : Colors.grey,
-                  fontSize: 19,
+                  fontSize: isWeb()? 19:15,
                   fontWeight: isVisible
                       ? FontWeight.w900
                       : isonTop
@@ -211,9 +212,9 @@ class _SkillWidgetState extends State<SkillWidget> {
                         ),
                         child: Text(
                           "  ${i + 1}. ${widget.skilList[i]}",
-                          style: const TextStyle(
+                          style:  TextStyle(
                             color: Colors.grey,
-                            fontSize: 16,
+                            fontSize: isWeb()? 16:12,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

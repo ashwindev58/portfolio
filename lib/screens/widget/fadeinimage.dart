@@ -1,9 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../commons/constants.dart';
 
 class FadeInContainer extends StatefulWidget {
   final BoxConstraints constraints;
 
-  const FadeInContainer({super.key, required this.constraints});
+  const FadeInContainer.FadeInImageContainer(
+      {super.key, required this.constraints});
   @override
   _FadeInContainerState createState() => _FadeInContainerState();
 }
@@ -19,7 +23,7 @@ class _FadeInContainerState extends State<FadeInContainer>
     super.initState();
 
     // Create an animation controller
-    constraints=widget.constraints;
+    constraints = widget.constraints;
     _controller = AnimationController(
       duration: Duration(seconds: 2), // Set the duration of the animation
       vsync: this,
@@ -35,12 +39,15 @@ class _FadeInContainerState extends State<FadeInContainer>
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-        right: constraints.maxWidth * 0.05,
-        top: constraints.maxHeight * 0.1,
-      ),
-      width: constraints.maxWidth * 0.4,
-      height: constraints.maxHeight * 0.7,
+      margin: isWeb()
+          ? EdgeInsets.only(
+              right: constraints.maxWidth * 0.05,
+              top: constraints.maxHeight * 0.1,
+            )
+          : null,
+      width: isWeb() ? constraints.maxWidth * 0.4 : constraints.maxWidth,
+      height:
+          isWeb() ? constraints.maxHeight * 0.65 : constraints.maxHeight * 0.5,
       child: FadeTransition(
         opacity: _animation,
         child: Image.network(

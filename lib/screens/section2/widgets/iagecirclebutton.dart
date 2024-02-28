@@ -1,3 +1,4 @@
+import 'package:ashwin_k/commons/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,8 +19,8 @@ class CircularImageButton extends StatelessWidget {
       },
       
       child: Container(
-        width: (constraints.maxHeight*constraints.maxWidth/100)*0.008,
-        height: (constraints.maxHeight*constraints.maxWidth/100)*0.008,
+        width:isWeb()? (constraints.maxHeight*constraints.maxWidth/100)*0.008:(constraints.maxHeight*constraints.maxWidth/100)*0.02,
+        height: isWeb()? (constraints.maxHeight*constraints.maxWidth/100)*0.008:(constraints.maxHeight*constraints.maxWidth/100)*0.02,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(

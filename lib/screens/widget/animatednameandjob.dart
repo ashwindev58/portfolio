@@ -1,3 +1,4 @@
+import 'package:ashwin_k/commons/constants.dart';
 import 'package:flutter/material.dart';
 
 class SlideInColumn extends StatefulWidget {
@@ -65,19 +66,19 @@ class _SlideInColumnState extends State<SlideInColumn>
               "ASHWIN K",
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 30,
+                  fontSize:  isWeb()?30:25,
                   letterSpacing: constraints.maxWidth * 0.005,
                   fontWeight: FontWeight.w900),
             ),
             SizedBox(
-              height: constraints.maxWidth * 0.005,
+              height: isWeb()?constraints.maxHeight * 0.005:constraints.maxHeight * 0.015,
             ),
             SizedBox(
-              width: constraints.maxWidth * 0.4,
-              child: const Text(
+              width: isWeb()? constraints.maxWidth * 0.4:constraints.maxWidth -10,
+              child:  Text(
                 '''Adaptable Flutter Developer with a flair for crafting visually appealing and highly functional cross-platform applications. Driven by a commitment to staying ahead in the ever-evolving world of Flutter development.''',
                 style: TextStyle(
-                    color: Colors.grey, fontSize: 18),
+                    color: Colors.grey, fontSize: isWeb()?18:13),
                 textAlign: TextAlign.justify,
               ),
             ),
@@ -85,7 +86,7 @@ class _SlideInColumnState extends State<SlideInColumn>
               height: constraints.maxHeight * 0.05,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: isWeb()? MainAxisAlignment.start:MainAxisAlignment.spaceEvenly,
               children: [
                 TextSubText(
                   constraints: constraints,
@@ -97,7 +98,7 @@ class _SlideInColumnState extends State<SlideInColumn>
                 ),
                 TextSubText(
                   constraints: constraints,
-                  title: "1+",
+                  title: "10+",
                   subTitle: "Project Behind",
                 ),
               ],
@@ -144,8 +145,8 @@ class TextSubText extends StatelessWidget {
         SizedBox(height: constraints.maxHeight * 0.01),
         Text(
           subTitle,
-          style: const TextStyle(
-            fontSize: 16,
+          style:  TextStyle(
+            fontSize: isWeb()?16:13,
             color: Colors.grey,
           ),
         ),

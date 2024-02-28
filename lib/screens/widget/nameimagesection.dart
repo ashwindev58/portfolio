@@ -37,7 +37,7 @@ class NameImageSection1 extends StatelessWidget {
               
           
           
-              FadeInContainer(constraints: constraints),
+              FadeInContainer.FadeInImageContainer(constraints: constraints),
               SlideInColumn(constraints: constraints),
             
             ],
